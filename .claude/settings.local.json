@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:td-maxfolio.framer.website)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npx --version)",
+      "WebFetch(domain:v0.app)",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "WebFetch(domain:v0.dev)",
+      "WebFetch(domain:vm-minimalist-elegant-portfolio-29.vusercontent.net)",
+      "WebFetch(domain:www.frog.co)",
+      "WebFetch(domain:edwinle.com)",
+      "WebFetch(domain:www.linkedin.com)",
+      "WebFetch(domain:bikiron.in)",
+      "Bash(python3 -)",
+      "Bash(awk 'NR>=50 && NR<=70')"
+    ]
+  }
+}

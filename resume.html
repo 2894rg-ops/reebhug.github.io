@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume | Reebhu G. | UX Designer</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Geist:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --fg: #0a0a0a;
+      --muted: #f5f5f5;
+      --muted-fg: #737373;
+      --border: #e5e5e5;
+      --radius: 0.5rem;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .nav-inner {
+      padding: 0 48px;
+      height: 64px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+    }
+    .nav-logo {
+      font-family: 'Geist', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      color: var(--fg);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-link, .nav-resume {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #0a0a0a;
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 1.5px solid transparent;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .nav-link:hover, .nav-resume:hover,
+    .nav-link.active, .nav-resume.active {
+      background: transparent;
+      color: #0a0a0a;
+      border-color: #0a0a0a;
+    }
+    .nav-resume { border-color: #0a0a0a; }
+    .nav-right {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .nav-contact {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #ffffff;
+      background: #0a0a0a;
+      padding: 8px 20px;
+      border-radius: 100px;
+      transition: opacity 0.2s ease;
+    }
+    .nav-contact:hover { opacity: 0.75; }
+
+    /* ── RESUME PAGE ── */
+    .resume-page {
+      padding-top: 64px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .resume-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px 48px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .resume-identity {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .resume-name {
+      font-family: 'Geist', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -0.5px;
+      color: var(--fg);
+    }
+
+    .resume-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted-fg);
+      background: var(--muted);
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+
+    .resume-viewer {
+      flex: 1;
+      padding: 24px 48px 48px;
+    }
+
+    .resume-viewer iframe {
+      width: 100%;
+      height: calc(100vh - 64px - 89px - 72px);
+      min-height: 600px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner { padding: 0 24px; }
+      .resume-header { padding: 24px 24px 20px; flex-direction: column; align-items: flex-start; gap: 16px; }
+      .resume-viewer { padding: 16px 24px 32px; }
+    }
+  </style>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xbziesoz4b");
+  </script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">REE</a>
+      <div class="nav-links">
+        <a href="index.html#work" class="nav-link">Selected Work</a>
+        <a href="index.html#journey" class="nav-link">My Journey</a>
+        <a href="index.html#testimonials" class="nav-link">Kind Words</a>
+        <a href="resume.html" class="nav-resume">View Resume</a>
+      </div>
+      <div class="nav-right">
+        <a href="index.html#connect" class="nav-contact">Contact Me</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="resume-page">
+    <div class="resume-header">
+      <div class="resume-identity">
+        <span class="resume-name">Reebhu G</span>
+        <span class="resume-label">UX Resume · 2026</span>
+      </div>
+    </div>
+
+    <div class="resume-viewer">
+      <iframe
+        src="Resume/Reebhu G UX resume'26 - June.pdf"
+        title="Reebhu G, UX Resume 2026"
+      ></iframe>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reebhu G. | UX Designer</title>
+  <meta name="description" content="Portfolio of Reebhu G., Senior Design Lead with 5 years of experience designing digital products across fintech, healthcare, and enterprise." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Open Graph (link previews on WhatsApp, LinkedIn, iMessage) -->
+  <meta property="og:title" content="Reebhu G. | UX Designer" />
+  <meta property="og:description" content="5 years of product design across fintech, healthcare, and enterprise. Currently Senior Design Lead at Truminds Software Systems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://reebhug.com" />
+  <meta property="og:image" content="https://reebhug.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Reebhu G. | UX Designer" />
+  <meta name="twitter:description" content="5 years of product design across fintech, healthcare, and enterprise." />
+  <meta name="twitter:image" content="https://reebhug.com/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Geist:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --fg: #0a0a0a;
+      --muted: #f5f5f5;
+      --muted-fg: #737373;
+      --border: #e5e5e5;
+      --radius: 0.5rem;
+    }
+    [data-theme="dark"] {
+      --bg: #0a0a0a;
+      --fg: #fafafa;
+      --muted: #171717;
+      --muted-fg: #a3a3a3;
+      --border: #262626;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* ── LOADING STATE ── */
+    body:not(.loaded) {
+      overflow: hidden;
+    }
+    .load-reveal {
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    body.loaded .load-reveal {
+      opacity: 1;
+    }
+    /* Clients strip collapses to nothing during loading, expands on reveal */
+    .clients-strip.load-reveal {
+      max-height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      overflow: hidden;
+      transition: opacity 0.6s ease, max-height 0.6s ease, padding 0.6s ease;
+    }
+    body.loaded .clients-strip.load-reveal {
+      max-height: 200px;
+      padding-top: 28px;
+      padding-bottom: 28px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    nav.nav-hidden {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    .nav-inner {
+      padding: 0 48px;
+      height: 64px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+    }
+    .nav-logo {
+      font-family: 'Geist', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      color: var(--fg);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-link, .nav-resume {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #0a0a0a;
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 1.5px solid transparent;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .nav-link:hover, .nav-resume:hover,
+    .nav-link.active, .nav-resume.active {
+      background: transparent;
+      color: #0a0a0a;
+      border-color: #0a0a0a;
+    }
+    .nav-right {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .nav-contact {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #ffffff;
+      background: #0a0a0a;
+      padding: 8px 20px;
+      border-radius: 100px;
+      transition: opacity 0.2s ease;
+    }
+    .nav-contact:hover { opacity: 0.75; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 140px 48px 80px;
+      min-height: auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .hero-line-wrap {
+      overflow: hidden;
+    }
+
+    .hero-line {
+      font-family: 'Geist', sans-serif;
+      font-weight: 800;
+      font-size: clamp(28px, 5.2vw, 78px);
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: #0a0a0a;
+      display: block;
+      white-space: nowrap;
+    }
+
+    .hero-line.hook {
+      font-size: clamp(18px, 2vw, 28px);
+      font-weight: 400;
+      color: #0a0a0a;
+    }
+    .hero-line.greeting {
+      font-size: clamp(22px, 3.4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: #999;
+      font-family: 'Geist', sans-serif;
+      margin-bottom: 16px;
+    }
+
+    .hero-line.dim { color: rgba(0,0,0,0.28); }
+
+    .hero-desc {
+      margin-top: 0;
+      font-size: clamp(14px, 1.4vw, 17px);
+      color: #444;
+      line-height: 1.7;
+      max-width: none;
+      text-align: left;
+      font-weight: 500;
+    }
+
+
+    /* scroll hint */
+    .hero-scroll {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 48px;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #0a0a0a;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      cursor: pointer;
+    }
+    .hero-scroll:hover { color: #555; }
+    .hero-scroll-arrow {
+      width: 32px; height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    /* Show border only when loaded (arrow state) */
+    .hero-scroll-arrow.loaded {
+      border: 1px solid rgba(0,0,0,0.4);
+      border-radius: 50%;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--fg);
+      color: var(--bg);
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--fg);
+      background: transparent;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: var(--muted); }
+
+    /* ── SECTIONS SHARED ── */
+    .section { padding: 72px 48px; }
+    .section-inner { max-width: none; }
+    .section-label {
+      font-family: 'Geist', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      color: #0a0a0a;
+      margin-bottom: 64px;
+    }
+
+    /* ── CLIENTS STRIP ── */
+    .clients-strip {
+      padding: 28px 48px;
+    }
+    .clients-overflow {
+      overflow: hidden;
+    }
+    .hero-explore-wrap {
+      padding: 24px 48px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .clients-track {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      width: max-content;
+      animation: marquee-clients 28s linear infinite;
+    }
+    .clients-track:hover { animation-play-state: paused; }
+    @keyframes marquee-clients {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .client-logo {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.5;
+      filter: grayscale(100%);
+      transition: opacity 0.2s, filter 0.2s;
+    }
+    .client-logo:hover { opacity: 1; filter: grayscale(0%); }
+    .client-dot { color: var(--border); font-size: 20px; line-height: 1; }
+
+    /* ── WORK ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .project-card {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-thumb {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--muted);
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      margin-bottom: 14px;
+    }
+    .project-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+    .project-card:hover .project-thumb img { transform: scale(1.04); }
+    .project-card:hover .pa-cascade-img { transform: none; }
+    .poc-thumb-inner {
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .project-card:hover .poc-thumb-inner { transform: scale(1.08); }
+    .project-thumb-placeholder {
+      width: 100%; height: 100%;
+      position: absolute; inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Geist', sans-serif;
+      font-weight: 800;
+      font-size: clamp(14px, 2vw, 28px);
+      letter-spacing: -0.5px;
+      color: rgba(0,0,0,0.2);
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .p1 { background: #c8d4ec; }
+    .p2 { background: #e8c8d4; }
+    .p3 { background: #c8e8d4; }
+    .p4 { background: #e8e8c8; }
+    .p5 { background: #d4c8e8; }
+    .project-meta {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .project-name {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--fg);
+    }
+    .project-year {
+      font-size: 12px;
+      color: var(--muted-fg);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+    .project-read-time {
+      font-size: 11px;
+      color: var(--muted-fg);
+      white-space: nowrap;
+      margin-top: 10px;
+    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 10px;
+      background: var(--muted);
+      color: var(--muted-fg);
+      border-radius: 100px;
+    }
+    .project-desc {
+      font-size: 13px;
+      color: #999;
+      line-height: 1.6;
+      margin-top: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .project-card {
+      border-radius: var(--radius);
+      padding-bottom: 4px;
+    }
+    .project-thumb {
+      transition: none;
+    }
+    .project-card:hover .project-thumb-placeholder,
+    .project-card:hover .project-thumb img {
+      transform: scale(1.08);
+    }
+
+    /* ── MY JOURNEY TIMELINE ── */
+    .journey { padding: 80px 0 80px 48px; overflow: hidden; }
+    .journey-header {
+      padding-right: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+    .journey-nav { display: flex; gap: 8px; }
+    .journey-arrow {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.15);
+      background: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .journey-arrow:hover { background: #0a0a0a; border-color: #0a0a0a; }
+    .journey-arrow:hover svg { stroke: #fff; }
+    .journey-arrow svg { width: 16px; height: 16px; stroke: #0a0a0a; transition: stroke 0.2s; }
+
+    .journey-track-wrap {
+      overflow-x: auto;
+      scrollbar-width: none;
+      cursor: grab;
+      user-select: none;
+    }
+    .journey-track-wrap::-webkit-scrollbar { display: none; }
+    .journey-track-wrap.dragging { cursor: grabbing; }
+
+    .journey-track {
+      display: flex;
+      gap: 0;
+      position: relative;
+      padding-right: 50vw;
+    }
+
+    .journey-item {
+      flex: 0 0 280px;
+      padding: 0 32px 0 0;
+      position: relative;
+    }
+
+    .journey-year {
+      font-family: 'Geist', sans-serif;
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 800;
+      color: #efefef;
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 20px;
+      transition: color 0.3s;
+    }
+    .journey-item.active .journey-year { color: #0a0a0a; }
+
+    .journey-line {
+      width: 100%;
+      height: 2px;
+      background: #e8e8e8;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .journey-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #d0d0d0;
+      position: absolute;
+      top: 50%; left: 0;
+      transform: translateY(-50%);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .journey-item.active .journey-dot { background: #0a0a0a; transform: translateY(-50%) scale(1.3); }
+
+    .journey-entry { margin-bottom: 24px; }
+    .journey-entry:last-child { margin-bottom: 0; }
+
+    .journey-period {
+      font-size: 11px;
+      font-weight: 600;
+      color: #aaa;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .journey-role {
+      font-family: 'Geist', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #0a0a0a;
+      margin-bottom: 2px;
+      letter-spacing: -0.2px;
+    }
+    .journey-company {
+      font-size: 13px;
+      color: #999;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .read-more {
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: #0a0a0a;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      opacity: 0.4;
+      transition: opacity 0.2s;
+    }
+    .read-more:hover { opacity: 1; }
+
+    .journey-completion {
+      margin-bottom: 10px;
+    }
+    .journey-completion .journey-period { margin-bottom: 2px; }
+    .journey-completion-role {
+      font-size: 12px;
+      color: #bbb;
+      font-weight: 500;
+    }
+    .journey-sep-simple {
+      width: 100%;
+      height: 1px;
+      background: #e8e8e8;
+      margin: 12px 0 16px;
+    }
+    .journey-item { cursor: pointer; }
+    .journey-item:hover .journey-year:not(.active-year) { color: #555; }
+
+    /* ── MODAL ── */
+    .journey-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+    }
+    .journey-modal-backdrop.open { display: flex; }
+    .journey-modal {
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 480px;
+      width: calc(100% - 48px);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 1px solid #e0e0e0;
+      background: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      color: #666;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: #f5f5f5; }
+    .modal-dates {
+      font-size: 12px;
+      font-weight: 600;
+      color: #aaa;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .modal-role {
+      font-family: 'Geist', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: #0a0a0a;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+    .modal-company {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 20px;
+    }
+    .modal-desc {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.8;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-carousel-wrap {
+      overflow: hidden;
+      margin: 0;
+      padding: 8px 48px;
+    }
+    .testimonials-track {
+      display: flex;
+      gap: 24px;
+      width: max-content;
+      animation: marquee-testimonials 40s linear infinite;
+    }
+    .testimonials-track:hover { animation-play-state: paused; }
+    @keyframes marquee-testimonials {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .testimonial-card {
+      background: var(--muted);
+      border-radius: var(--radius);
+      padding: 32px;
+      flex: 0 0 380px;
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-quote {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--muted-fg);
+      flex: 1;
+      margin-bottom: 28px;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+    .author-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--border);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .author-avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .author-meta { display: flex; flex-direction: column; gap: 2px; }
+    .author-name { font-size: 14px; font-weight: 600; }
+    .author-designation { font-size: 12px; color: var(--muted-fg); }
+    .author-org { font-size: 12px; color: var(--muted-fg); }
+
+    /* ── COPYRIGHT ── */
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: 32px; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.35); font-weight: 500; }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: #0a0a0a;
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .go-top {
+      align-self: flex-end;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 48px;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .go-top:hover { color: #ffffff; }
+    .go-top-arrow {
+      width: 32px; height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      transition: border-color 0.2s ease;
+    }
+    .go-top:hover .go-top-arrow { border-color: rgba(255,255,255,0.8); }
+    .footer-headline {
+      font-family: 'Geist', sans-serif;
+      font-size: clamp(28px, 4vw, 56px);
+      font-weight: 600;
+      letter-spacing: -1px;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 40px;
+    }
+    .footer-identity {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+    .footer-name {
+      font-family: 'Geist', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+    }
+    .footer-handle {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0;
+    }
+    .footer-email {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-email:hover { color: #ffffff; }
+    .footer-linkedin {
+      margin-top: 12px;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .footer-linkedin:hover { background: #ffffff; color: #0a0a0a; }
+    .footer-linkedin svg { width: 18px; height: 18px; stroke: currentColor; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── HAMBURGER NAV ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      justify-self: end;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--fg);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    .nav-drawer {
+      position: fixed;
+      top: 0; right: -100%;
+      width: 75vw; max-width: 300px;
+      height: 100vh;
+      background: #fff;
+      z-index: 200;
+      padding: 80px 32px 40px;
+      transition: right 0.3s ease;
+      box-shadow: -4px 0 24px rgba(0,0,0,0.08);
+    }
+    .nav-drawer.open { right: 0; }
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      z-index: 199;
+    }
+    .nav-overlay.show { display: block; }
+    .drawer-link {
+      display: block;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--fg);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .drawer-link:last-child { border-bottom: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links, .nav-right { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-inner { grid-template-columns: 1fr auto; padding: 0 24px; }
+      .projects-grid { grid-template-columns: 1fr; gap: 24px; }
+      .testimonials-carousel-wrap { padding: 8px 24px; }
+      .section { padding: 80px 24px; }
+      .journey { padding: 80px 0 80px 24px; }
+      .site-footer { padding: 64px 24px; }
+      .hero { padding: 120px 24px 60px; }
+      .footer-bottom { flex-direction: column; gap: 8px; align-items: flex-start; }
+      .hero-line { white-space: normal; font-size: clamp(20px, 5.5vw, 28px); }
+      .hero-line.greeting { font-size: clamp(15px, 4vw, 20px); }
+      .hero-line-wrap { overflow: visible; }
+      .section-label { font-size: 28px; margin-bottom: 40px; }
+    }
+    @media (max-width: 480px) {
+      .section { padding: 60px 20px; }
+      .hero { padding: 100px 20px 48px; }
+      .site-footer { padding: 48px 20px; }
+      .project-name { font-size: 14px; }
+      .tag { font-size: 10px; }
+      .hero-line { font-size: clamp(18px, 5vw, 22px); }
+      .hero-line.greeting { font-size: clamp(14px, 3.8vw, 17px); }
+    }
+  </style>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xbziesoz4b");
+  </script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">REE</a>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links load-reveal">
+        <a href="#work" class="nav-link" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'});return false;">Selected Work</a>
+        <a href="#journey" class="nav-link" onclick="document.getElementById('journey').scrollIntoView({behavior:'smooth'});return false;">Career</a>
+        <a href="#testimonials" class="nav-link" onclick="document.getElementById('testimonials').scrollIntoView({behavior:'smooth'});return false;">What Collaborators Say</a>
+        <a href="resume.html" target="_blank" rel="noopener" class="nav-resume">View Resume</a>
+      </div>
+      <div class="nav-right load-reveal">
+        <a href="#connect" class="nav-contact" onclick="document.getElementById('connect').scrollIntoView({behavior:'smooth'});return false;">Contact Me</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-lines">
+      <div class="hero-line-wrap">
+        <span class="hero-line greeting" data-delay="0">Namaskar! I'm <span style="color:#0a0a0a;">Reebhu G.</span></span>
+      </div>
+      <div class="hero-line-wrap">
+        <span class="hero-line hook" data-delay="300">I take ambiguous, high-stakes product briefs and turn them into shipped experiences.</span>
+      </div>
+      <p class="hero-desc load-reveal" id="heroDesc">Product UX Designer with 5 years across Enterprise, B2C, and SaaS, from research and IA through to shipped visual design. I bring rigour to the full process: stakeholder alignment, interaction design, and systems thinking, now augmented with AI workflows that accelerate ideation and sharpen decisions. I translate ambiguous briefs into experiences that are both considered and commercially grounded.</p>
+    </div>
+  </section>
+
+  <!-- CLIENTS STRIP -->
+  <section class="clients-strip load-reveal">
+    <div class="clients-overflow">
+        <div class="clients-track">
+    <img class="client-logo" src="Clients/Mirra Healthcare.svg" alt="Mirra Healthcare">
+    <span class="client-dot">·</span>
+    <img class="client-logo" src="Clients/Adani Total Gas Limited.svg" alt="Adani Total Gas Limited">
+    <span class="client-dot">·</span>
+    <img class="client-logo" src="Clients/Dataflow.svg" alt="Dataflow">
+    <span class="client-dot">·</span>
+    <img class="client-logo" src="Clients/Ingka Centres.png" alt="Ingka Centres">
+    <span class="client-dot">·</span>
+    <img class="client-logo" src="Clients/Arthmate.png" alt="Arthmate">
+    <span class="client-dot">·</span>
+    <img class="client-logo" src="Clients/Luminous.webp" alt="Luminous">
+    <span class="client-dot">·</span>
+    <img class="client-logo" aria-hidden="true" src="Clients/Mirra Healthcare.svg" alt="Mirra Healthcare">
+    <span class="client-dot" aria-hidden="true">·</span>
+    <img class="client-logo" aria-hidden="true" src="Clients/Adani Total Gas Limited.svg" alt="Adani Total Gas Limited">
+    <span class="client-dot" aria-hidden="true">·</span>
+    <img class="client-logo" aria-hidden="true" src="Clients/Dataflow.svg" alt="Dataflow">
+    <span class="client-dot" aria-hidden="true">·</span>
+    <img class="client-logo" aria-hidden="true" src="Clients/Ingka Centres.png" alt="Ingka Centres">
+    <span class="client-dot" aria-hidden="true">·</span>
+    <img class="client-logo" aria-hidden="true" src="Clients/Arthmate.png" alt="Arthmate">
+    <span class="client-dot" aria-hidden="true">·</span>
+    <img class="client-logo" aria-hidden="true" src="Clients/Luminous.webp" alt="Luminous">
+    <span class="client-dot" aria-hidden="true">·</span>
+    </div>
+    </div>
+  </section>
+
+  <div class="hero-explore-wrap">
+    <a href="#work" class="hero-scroll" id="heroScroll" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'});return false;">
+      <span id="heroScrollLabel">LOADING</span>
+      <span class="hero-scroll-arrow" id="heroScrollIcon">
+        <svg id="loadingSpinner" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="11" stroke="rgba(0,0,0,0.15)" stroke-width="2"/>
+          <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round"
+            stroke-dasharray="69.12"
+            stroke-dashoffset="52"
+            transform="rotate(-90 14 14)">
+            <animateTransform attributeName="transform" type="rotate" from="-90 14 14" to="270 14 14" dur="1.2s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+        <svg id="loadedArrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </span>
+    </a>
+  </div>
+
+  <!-- WORK -->
+  <section class="section load-reveal" id="work">
+    <div class="section-inner">
+      <p class="section-label reveal">Selected Work</p>
+      <div class="projects-grid">
+
+        <div class="project-card reveal" onclick="window.location='work/2024 Partner App.html'" style="cursor:pointer;">
+          <div class="project-thumb" style="background:#E8ECFF;">
+            <img src="work/Partner App/Thumbnail/Thumbnail.png" alt="Partner App thumbnail" />
+          </div>
+          <div class="project-meta">
+            <div>
+              <h3 class="project-name">Partner App</h3>
+              <div class="project-tags">
+                <span class="tag">Electrical Industry</span>
+                <span class="tag">Digital Transformation</span>
+                <span class="tag">Flutter</span>
+                <span class="tag">B2C</span>
+              </div>
+            </div>
+          </div>
+          <p class="project-desc">A super application for dealers and distributors of a client, unifying sales, rewards, network management, and operations in one app.</p>
+          <span class="project-read-time">5 min read</span>
+        </div>
+
+        <div class="project-card reveal" onclick="window.location='work/2024 Borrow.html'" style="cursor:pointer;">
+          <div class="project-thumb" style="background:#DDF0FA;">
+            <img src="work/Borrow/Screens/Thumbnail/Thumbnail.png" alt="Borrow, Arthmate PWA" />
+          </div>
+          <div class="project-meta">
+            <div>
+              <h3 class="project-name">Borrow</h3>
+              <div class="project-tags">
+                <span class="tag">Fintech</span>
+                <span class="tag">Digital Transformation</span>
+                <span class="tag">PWA</span>
+                <span class="tag">B2C</span>
+              </div>
+            </div>
+          </div>
+          <p class="project-desc">A Progressive Web App for Arthmate that gives borrowers complete control over their loans, from payments to NACH management, end-to-end in 6 weeks.</p>
+          <span class="project-read-time">4 min read</span>
+        </div>
+
+        <div class="project-card reveal" onclick="window.location='work/2022 Mall Visit App.html'" style="cursor:pointer;">
+          <div class="project-thumb" style="background:#FFF5B0; overflow:hidden;">
+            <img src="work/Mall Vistor App/Thumbnail/Thumbnail.png" alt="Mall Visit App" style="width:100%; height:100%; object-fit:cover; display:block;" />
+          </div>
+          <div class="project-meta">
+            <div>
+              <h3 class="project-name">Mall Visit App</h3>
+              <div class="project-tags">
+                <span class="tag">Retail Tech</span>
+                <span class="tag">iOS</span>
+                <span class="tag">Android</span>
+                <span class="tag">B2C</span>
+              </div>
+            </div>
+          </div>
+          <p class="project-desc">A mobile app that turns a mall trip into a planned, connected experience, visit scheduling, store discovery, and restaurant reservations in one place.</p>
+          <span class="project-read-time">5 min read</span>
+        </div>
+
+        <div class="project-card reveal" onclick="window.location='work/2023 Healthcare.html'" style="cursor:pointer;">
+          <div class="project-thumb" style="background:#F0F4FF;">
+            <img src="work/Smart Health/Thumbnail/Thumbnail.png" alt="Smart Health, iOS Healthcare App" style="object-fit:contain; padding:56px;" />
+          </div>
+          <div class="project-meta">
+            <div>
+              <h3 class="project-name">Smart Health</h3>
+              <div class="project-tags">
+                <span class="tag">Healthcare</span>
+                <span class="tag">Digital Transformation</span>
+                <span class="tag">iOS</span>
+                <span class="tag">B2C</span>
+              </div>
+            </div>
+          </div>
+          <p class="project-desc">An iOS app for Smart Health Network that centralises patient records, simplifies check-in with a QR code, and connects patients with their care network across the US healthcare system.</p>
+          <span class="project-read-time">5 min read</span>
+        </div>
+
+        <div class="project-card reveal" onclick="window.location='work/2022 Allocation Engine.html'" style="cursor:pointer;">
+          <div class="project-thumb" style="background:rgba(235,98,0,0.15); display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <div class="poc-thumb-inner" style="text-align:center; padding:32px;">
+              <div style="font-family:'Geist',sans-serif; font-size:40px; font-weight:800; color:#EB6200; letter-spacing:-2px; line-height:0.9;">POC</div>
+              <div style="width:28px; height:1px; background:rgba(235,98,0,0.3); margin:16px auto;"></div>
+              <div style="font-family:'Inter',sans-serif; font-size:15px; font-weight:600; color:#EB6200; letter-spacing:0.08em; text-transform:uppercase;">Allocation Engine</div>
+            </div>
+          </div>
+          <div class="project-meta">
+            <div>
+              <h3 class="project-name">Allocation Engine</h3>
+              <div class="project-tags">
+                <span class="tag">Data Engineering</span>
+                <span class="tag">Web</span>
+                <span class="tag">Enterprise</span>
+              </div>
+            </div>
+          </div>
+          <p class="project-desc">A two-week proof of concept exploring how rule-based logic could automate loan allocation, from domain research and information architecture to validated wireframes.</p>
+          <span class="project-read-time">3 min read</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MY JOURNEY -->
+  <section class="journey load-reveal" id="journey">
+    <div class="journey-header">
+      <p class="section-label" style="margin-bottom:0;">Career</p>
+      <div class="journey-nav">
+        <button class="journey-arrow" id="journeyPrev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="journey-arrow" id="journeyNext" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="journey-track-wrap" id="journeyTrack">
+      <div class="journey-track">
+
+        <!-- 2020 -->
+        <div class="journey-item">
+          <div class="journey-year">2020</div>
+          <div class="journey-line"><div class="journey-dot"></div></div>
+          <div class="journey-entry">
+            <div class="journey-period">Jun – Dec 2020</div>
+            <div class="journey-role">UX Generalist Intern</div>
+            <div class="journey-company">BluOne</div>
+            <button class="read-more" data-id="0">Read more</button>
+          </div>
+          <div class="journey-entry">
+            <div class="journey-period">Dec 2020</div>
+            <div class="journey-role">UX Generalist / Product Owner</div>
+            <div class="journey-company">Mirra Health Care</div>
+            <button class="read-more" data-id="1">Read more</button>
+          </div>
+        </div>
+
+        <!-- 2021 -->
+        <div class="journey-item">
+          <div class="journey-year">2021</div>
+          <div class="journey-line"><div class="journey-dot"></div></div>
+          <div class="journey-completion">
+            <div class="journey-period">Sep 2021</div>
+            <div class="journey-completion-role">UX Generalist / PO &nbsp;·&nbsp; Mirra Health Care</div>
+          </div>
+          <div class="journey-sep-simple"></div>
+          <div class="journey-entry">
+            <div class="journey-period">Sep 2021</div>
+            <div class="journey-role">Executive, UX</div>
+            <div class="journey-company">Adani Digital Labs</div>
+            <button class="read-more" data-id="2">Read more</button>
+          </div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="journey-item">
+          <div class="journey-year">2022</div>
+          <div class="journey-line"><div class="journey-dot"></div></div>
+          <div class="journey-completion">
+            <div class="journey-period">May 2022</div>
+            <div class="journey-completion-role">Executive, UX &nbsp;·&nbsp; Adani Digital Labs</div>
+          </div>
+          <div class="journey-sep-simple"></div>
+          <div class="journey-entry">
+            <div class="journey-period">Jun 2022</div>
+            <div class="journey-role">User Experience Designer</div>
+            <div class="journey-company">Truminds Software Systems</div>
+            <button class="read-more" data-id="3">Read more</button>
+          </div>
+        </div>
+
+        <!-- 2023 -->
+        <div class="journey-item">
+          <div class="journey-year">2023</div>
+          <div class="journey-line"><div class="journey-dot"></div></div>
+          <div class="journey-completion">
+            <div class="journey-period">Jun 2023</div>
+            <div class="journey-completion-role">Product UX Designer &nbsp;·&nbsp; Truminds Software Systems</div>
+          </div>
+          <div class="journey-sep-simple"></div>
+          <div class="journey-entry">
+            <div class="journey-period">Jun 2023 &nbsp;·&nbsp; Promoted</div>
+            <div class="journey-role">Senior Product UX Designer</div>
+            <div class="journey-company">Truminds Software Systems</div>
+            <button class="read-more" data-id="4">Read more</button>
+          </div>
+        </div>
+
+        <!-- 2024 -->
+        <div class="journey-item">
+          <div class="journey-year">2024</div>
+          <div class="journey-line"><div class="journey-dot"></div></div>
+          <div class="journey-completion">
+            <div class="journey-period">Jun 2024</div>
+            <div class="journey-completion-role">Senior Product UX Designer &nbsp;·&nbsp; Truminds Software Systems</div>
+          </div>
+          <div class="journey-sep-simple"></div>
+          <div class="journey-entry">
+            <div class="journey-period">Jun – Sep 2024</div>
+            <div class="journey-role">Senior Product UX Designer</div>
+            <div class="journey-company">Arthmate</div>
+            <button class="read-more" data-id="5">Read more</button>
+          </div>
+          <div class="journey-entry">
+            <div class="journey-period">Oct – Dec 2024</div>
+            <div class="journey-role">Senior UX/UI Designer</div>
+            <div class="journey-company">Amantya Technologies</div>
+            <button class="read-more" data-id="6">Read more</button>
+          </div>
+        </div>
+
+        <!-- 2025 -->
+        <div class="journey-item">
+          <div class="journey-year">2025</div>
+          <div class="journey-line"><div class="journey-dot"></div></div>
+          <div class="journey-entry">
+            <div class="journey-period">Jan 2025 – Present</div>
+            <div class="journey-role">Senior UX Designer</div>
+            <div class="journey-company">Truminds Software Systems</div>
+            <button class="read-more" data-id="7">Read more</button>
+          </div>
+        </div>
+
+        <!-- 2026 -->
+        <div class="journey-item">
+          <div class="journey-year">2026</div>
+          <div class="journey-line"><div class="journey-dot"></div></div>
+          <div class="journey-entry">
+            <div class="journey-period">Present</div>
+            <div class="journey-role">Senior UX Designer</div>
+            <div class="journey-company">Truminds Software Systems</div>
+            <button class="read-more" data-id="8">Read more</button>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="journey-modal-backdrop" id="journeyModal">
+      <div class="journey-modal">
+        <button class="modal-close" id="modalClose">✕</button>
+        <div class="modal-dates" id="modalDates"></div>
+        <div class="modal-role" id="modalRole"></div>
+        <div class="modal-company" id="modalCompany"></div>
+        <p class="modal-desc" id="modalDesc"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section load-reveal" id="testimonials">
+    <div class="section-inner">
+      <p class="section-label reveal">What Collaborators Say</p>
+    </div>
+    <div class="testimonials-carousel-wrap reveal">
+      <div class="testimonials-track">
+        <!-- original set -->
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"I can recommend Reebhu for any team which deals with UI design projects. Whether working on web, mobile, or cross-platform applications, Reebhu consistently delivers good-quality, impactful designs that resonate with users."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><img src="Testimonial Author's Images/Yury Orlov.jpeg" alt="Yury Orlov"></div>
+            <div class="author-meta">
+              <div class="author-name">Yury Orlov</div>
+              <div class="author-designation">Global B2C Products Owner</div>
+              <div class="author-org">Ingka Centres</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"I had the pleasure of working with Reebhu on a recent project, and he exceeded all expectations. He quickly understood our needs, responded promptly to every request, and delivered high-quality work within our tight timeline. Reebhu's design skills and professionalism made him a valuable asset to the project. I highly recommend him!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><img src="Testimonial Author's Images/Sanket Somra.jpeg" alt="Sanket Somra"></div>
+            <div class="author-meta">
+              <div class="author-name">Sanket Somra</div>
+              <div class="author-designation">Deputy General Manager</div>
+              <div class="author-org">Luminous Power Technologies</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Being in the same team, I have worked closely with Reebhu, where he consistently handled multiple projects and provided his guidance to his fellow designers. He proved to be a dependable and crucial member of the team by taking the ownership of his designs making sure it aligns with both Business goals and User Needs, even during tight deadlines. His invaluable insights and dedication to his craft and team is always appreciable."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><img src="Testimonial Author's Images/Lakhi Shreya.jpeg" alt="Lakhi Shreya"></div>
+            <div class="author-meta">
+              <div class="author-name">Lakhi Shreya</div>
+              <div class="author-designation">Product UX Designer</div>
+              <div class="author-org">Optum</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Reebhu is a rockstar in his role! He's incredibly knowledgeable and always willing to go the extra mile. I've thoroughly enjoyed working with him."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><img src="Testimonial Author's Images/Ujjwal Sharma.jpeg" alt="Ujjwal Sharma"></div>
+            <div class="author-meta">
+              <div class="author-name">Ujjwal Sharma</div>
+              <div class="author-designation">Senior Technical Lead</div>
+              <div class="author-org">Truminds Software Systems</div>
+            </div>
+          </div>
+        </div>
+        <!-- duplicate set for seamless loop -->
+        <div class="testimonial-card" aria-hidden="true">
+          <p class="testimonial-quote">"I can recommend Reebhu for any team which deals with UI design projects. Whether working on web, mobile, or cross-platform applications, Reebhu consistently delivers good-quality, impactful designs that resonate with users."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><img src="Testimonial Author's Images/Yury Orlov.jpeg" alt="Yury Orlov"></div>
+            <div class="author-meta">
+              <div class="author-name">Yury Orlov</div>
+              <div class="author-designation">Global B2C Products Owner</div>
+              <div class="author-org">Ingka Centres</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" aria-hidden="true">
+          <p class="testimonial-quote">"I had the pleasure of working with Reebhu on a recent project, and he exceeded all expectations. He quickly understood our needs, responded promptly to every request, and delivered high-quality work within our tight timeline. Reebhu's design skills and professionalism made him a valuable asset to the project. I highly recommend him!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><img src="Testimonial Author's Images/Sanket Somra.jpeg" alt="Sanket Somra"></div>
+            <div class="author-meta">
+              <div class="author-name">Sanket Somra</div>
+              <div class="author-designation">Deputy General Manager</div>
+              <div class="author-org">Luminous Power Technologies</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" aria-hidden="true">
+          <p class="testimonial-quote">"Being in the same team, I have worked closely with Reebhu, where he consistently handled multiple projects and provided his guidance to his fellow designers. He proved to be a dependable and crucial member of the team by taking the ownership of his designs making sure it aligns with both Business goals and User Needs, even during tight deadlines. His invaluable insights and dedication to his craft and team is always appreciable."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><img src="Testimonial Author's Images/Lakhi Shreya.jpeg" alt="Lakhi Shreya"></div>
+            <div class="author-meta">
+              <div class="author-name">Lakhi Shreya</div>
+              <div class="author-designation">Product UX Designer</div>
+              <div class="author-org">Optum</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" aria-hidden="true">
+          <p class="testimonial-quote">"Reebhu is a rockstar in his role! He's incredibly knowledgeable and always willing to go the extra mile. I've thoroughly enjoyed working with him."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><img src="Testimonial Author's Images/Ujjwal Sharma.jpeg" alt="Ujjwal Sharma"></div>
+            <div class="author-meta">
+              <div class="author-name">Ujjwal Sharma</div>
+              <div class="author-designation">Senior Technical Lead</div>
+              <div class="author-org">Truminds Software Systems</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer load-reveal" id="connect">
+    <a href="#home" class="go-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+      <span>GO ON TOP</span>
+      <span class="go-top-arrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </span>
+    </a>
+    <h2 class="footer-headline">Let's Connect.</h2>
+    <div class="footer-identity">
+      <span class="footer-name">Reebhu G</span>
+      <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#50;&#56;&#57;&#52;&#114;&#103;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" class="footer-email">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        &#50;&#56;&#57;&#52;&#114;&#103;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;
+      </a>
+      <a href="tel:+918826626690" class="footer-email">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.08 6.08l1.27-.85a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +91 88266 26690
+      </a>
+      <span class="footer-email">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Gurugram, Haryana, India
+      </span>
+    </div>
+    <div class="footer-bottom">
+      <a href="https://www.linkedin.com/in/reebhu-g-a5386b145/" target="_blank" rel="noopener" class="footer-linkedin" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <span class="footer-copy">© 2026 Reebhu G.</span>
+    </div>
+  </footer>
+
+  <!-- MOBILE NAV DRAWER -->
+  <div class="nav-drawer" id="navDrawer">
+    <a href="#work" class="drawer-link" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'});return false;">Work</a>
+    <a href="#journey" class="drawer-link" onclick="document.getElementById('journey').scrollIntoView({behavior:'smooth'});return false;">Career</a>
+    <a href="#testimonials" class="drawer-link" onclick="document.getElementById('testimonials').scrollIntoView({behavior:'smooth'});return false;">What Collaborators Say</a>
+    <a href="#connect" class="drawer-link" onclick="document.getElementById('connect').scrollIntoView({behavior:'smooth'});return false;">Contact Me</a>
+  </div>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <script>
+
+    // Switch to loaded state when page finishes loading
+    function setLoaded() {
+      // EXPLORE button
+      document.getElementById('heroScrollLabel').textContent = 'EXPLORE';
+      document.getElementById('loadingSpinner').style.display = 'none';
+      document.getElementById('loadedArrow').style.display = 'block';
+      document.getElementById('heroScrollIcon').classList.add('loaded');
+
+      // Stagger reveal: nav first, then hero content, then sections
+      const delays = {
+        '.nav-links':       0,
+        '.nav-right':       100,
+        '#heroDesc':        200,
+        '.clients-strip':   350,
+        '#work':            450,
+        '#journey':         500,
+        '#testimonials':    550,
+        '.site-footer':     600,
+      };
+      Object.entries(delays).forEach(([sel, delay]) => {
+        const el = document.querySelector(sel);
+        if (el) el.style.transitionDelay = delay + 'ms';
+      });
+
+      document.body.classList.add('loaded');
+    }
+    if (document.readyState === 'complete') {
+      setLoaded();
+    } else {
+      window.addEventListener('load', setLoaded);
+    }
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Stagger grids
+    document.querySelectorAll('.projects-grid .reveal').forEach((el, i) => { el.style.transitionDelay = `${i * 80}ms`; });
+    // testimonials carousel, no per-card reveal delays needed
+
+    // Experience data for modal
+    const expData = [
+      { dates: 'Jun 2020 – Dec 2020', role: 'UX Generalist Intern', company: 'BluOne', desc: 'Kicked off my design career at BluOne, learning the ropes of UX research, wireframing, and user-centred thinking on real product challenges in a fast-paced environment.' },
+      { dates: 'Dec 2020 – Sep 2021', role: 'UX Generalist / Product Owner', company: 'Mirra Health Care', desc: 'Designed innovative B2B solutions for US healthcare insurance companies, focused on improving user experience and driving business outcomes. Conducted in-depth research into the US healthcare landscape and collaborated closely with stakeholders to iterate on design concepts.' },
+      { dates: 'Sep 2021 – May 2022', role: 'Executive, UX', company: 'Adani Digital Labs', desc: 'Designed features for Adani Total Gas Limited\'s B2B & B2C products, ensuring seamless user experiences and adherence to project goals. Contributed to the development of the product\'s information architecture, driving a clear and intuitive user journey.' },
+      { dates: 'Jun 2022 – Jun 2023', role: 'User Experience Designer', company: 'Truminds Software Systems', desc: 'Successfully delivered multiple B2B and B2C digital products, aligning designs with client vision and meeting project deadlines. Developed comprehensive information architecture and user flows, and partnered with development teams to ensure accurate implementation through regular UX audits.' },
+      { dates: 'Jun 2023 – Jun 2024', role: 'Senior Product UX Designer', company: 'Truminds Software Systems', desc: 'Promoted within Truminds. Led the design and development of complex B2B and B2C digital products, conducted in-depth client interviews and SME sessions, and mentored junior designers. Proactively addressed design changes due to technical constraints while maintaining project quality.' },
+      { dates: 'Jun 2024 – Sep 2024', role: 'Senior Product UX Designer', company: 'Arthmate', desc: 'Led cross-functional collaboration with Product, Business, Marketing, and Development teams to deliver innovative user experiences and drive product success. Provided mentorship and guidance to interns and junior designers, fostering their growth and enhancing UX design skills.' },
+      { dates: 'Oct 2024 – Dec 2024', role: 'Senior UX/UI Designer', company: 'Amantya Technologies', desc: 'Contributed senior-level UX and UI design expertise to product initiatives at Amantya Technologies, bringing a refined design sensibility and structured approach to a fast-moving technology environment.' },
+      { dates: 'Jan 2025 – Dec 2025', role: 'Senior UX Designer', company: 'Truminds Software Systems', desc: 'Driving design strategy across the organisation, bridging design, product strategy, and innovation to shape human-centred digital experiences at scale, while actively learning and experimenting with AI to evolve workflows and push what design-led teams can do.' },
+      { dates: 'Jan 2026 – Present', role: 'Senior UX Designer', company: 'Truminds Software Systems', desc: 'Continuing as Senior UX Designer at Truminds Software Systems, leading design across product lines and deepening the integration of AI-driven workflows into the design process.' },
+    ];
+
+    // Modal
+    const modal = document.getElementById('journeyModal');
+    document.getElementById('modalClose').addEventListener('click', () => modal.classList.remove('open'));
+    modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
+    document.querySelectorAll('.read-more').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const d = expData[+btn.dataset.id];
+        document.getElementById('modalDates').textContent = d.dates;
+        document.getElementById('modalRole').textContent = d.role;
+        document.getElementById('modalCompany').textContent = d.company;
+        document.getElementById('modalDesc').textContent = d.desc;
+        modal.classList.add('open');
+      });
+    });
+
+    // Career timeline
+    const track = document.getElementById('journeyTrack');
+    const items = document.querySelectorAll('.journey-item');
+    const itemWidth = 280;
+    let activeIdx = items.length - 1;
+
+    function setActive(idx) {
+      items.forEach((el, i) => el.classList.toggle('active', i === idx));
+      activeIdx = idx;
+    }
+
+    function centerLastItem(behavior) {
+      const last = items[items.length - 1];
+      const center = last.offsetLeft - (track.clientWidth / 2 - last.offsetWidth / 2);
+      track.scrollTo({ left: Math.max(0, center), behavior: behavior || 'instant' });
+    }
+
+    // Set 2026 as active and centered on load
+    setActive(items.length - 1);
+    centerLastItem('instant');
+
+    function scrollToItem(idx) {
+      const item = items[idx];
+      const isLast = idx === items.length - 1;
+      if (isLast) {
+        centerLastItem('smooth');
+      } else {
+        track.scrollTo({ left: item.offsetLeft - 48, behavior: 'smooth' });
+      }
+      setActive(idx);
+    }
+
+    document.getElementById('journeyNext').addEventListener('click', () => {
+      scrollToItem(Math.min(activeIdx + 1, items.length - 1));
+    });
+    document.getElementById('journeyPrev').addEventListener('click', () => {
+      scrollToItem(Math.max(activeIdx - 1, 0));
+    });
+
+    // Click on year card to activate
+    items.forEach((item, i) => {
+      item.addEventListener('click', e => {
+        if (e.target.classList.contains('read-more')) return;
+        scrollToItem(i);
+      });
+    });
+
+    // Drag-to-scroll
+    let isDragging = false, startX = 0, scrollLeft = 0;
+    track.addEventListener('mousedown', e => {
+      isDragging = true;
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+      track.classList.add('dragging');
+    });
+    window.addEventListener('mouseup', () => { isDragging = false; track.classList.remove('dragging'); });
+    track.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      const x = e.pageX - track.offsetLeft;
+      track.scrollLeft = scrollLeft - (x - startX);
+    }, { passive: true });
+    // Hide nav when footer is visible, show when scrolled away
+    const footerEl = document.getElementById('connect');
+    const navEl = document.querySelector('nav');
+    const footerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        navEl.classList.toggle('nav-hidden', entry.isIntersecting);
+      });
+    }, { threshold: 0.05 });
+    footerObserver.observe(footerEl);
+
+    // Active nav link based on scroll position
+    const sections = [
+      { id: 'work', link: document.querySelector('.nav-link[href="#work"]') },
+      { id: 'journey', link: document.querySelector('.nav-link[href="#journey"]') },
+      { id: 'testimonials', link: document.querySelector('.nav-link[href="#testimonials"]') },
+    ];
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const match = sections.find(s => s.id === entry.target.id);
+        if (match && match.link) match.link.classList.toggle('active', entry.isIntersecting);
+      });
+    }, { threshold: 0.3 });
+    sections.forEach(s => {
+      const el = document.getElementById(s.id);
+      if (el) sectionObserver.observe(el);
+    });
+
+    // Hamburger menu
+    const hamburgerBtn = document.querySelector('.nav-hamburger');
+    const navDrawer = document.getElementById('navDrawer');
+    const navOverlay = document.getElementById('navOverlay');
+    function closeDrawer() {
+      navDrawer.classList.remove('open');
+      navOverlay.classList.remove('show');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    }
+    hamburgerBtn.addEventListener('click', () => {
+      const open = navDrawer.classList.toggle('open');
+      navOverlay.classList.toggle('show', open);
+      hamburgerBtn.setAttribute('aria-expanded', open);
+    });
+    navOverlay.addEventListener('click', closeDrawer);
+    document.querySelectorAll('.drawer-link').forEach(l => l.addEventListener('click', closeDrawer));
+  </script>
+</body>
+</html>
