@@ -98,9 +98,9 @@
 
     /* METRICS */
     .cs-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
-    .cs-metric { background: var(--muted); border-radius: var(--radius); padding: 32px 24px; text-align: left; }
-    .cs-metric-value { font-family: 'Geist', sans-serif; font-size: 40px; font-weight: 800; color: #0a0a0a; letter-spacing: -2px; line-height: 1; margin-bottom: 8px; }
-    .cs-metric-label { font-size: 13px; color: #0a0a0a; font-weight: 500; }
+    .cs-metric { background: #0a0a0a; border-radius: var(--radius); padding: 32px 24px; text-align: left; }
+    .cs-metric-value { font-family: 'Geist', sans-serif; font-size: 40px; font-weight: 800; color: #fff; letter-spacing: -2px; line-height: 1; margin-bottom: 8px; }
+    .cs-metric-label { font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 500; }
 
     /* LEARNINGS */
     .cs-learnings { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
@@ -125,7 +125,7 @@
     .ap-step { font-size: 12px; font-weight: 500; color: #bbb; transition: color 0.4s; }
     .ap-step.active { color: #0a0a0a; font-weight: 700; }
     .ap-sep { font-size: 12px; color: #ccc; }
-    .ap-stage-wrap { display: flex; justify-content: center; }
+    .ap-stage-wrap { display: flex; justify-content: center; align-items: center; flex: 1; }
     .ap-stage { position: relative; width: 100%; height: 100%; }
     .ap-screen { position: absolute; inset: 0; opacity: 0; z-index: 1; }
     .ap-screen.active { opacity: 1; }
@@ -286,7 +286,7 @@
   <!-- THE BRIEF -->
   <section class="cs-section reveal" style="border-top:none;">
     <div class="cs-section-label">The Brief</div>
-    <div class="brief-split" style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
+    <div class="brief-split" style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:stretch;">
       <div>
         <h2 class="cs-section-title">Scattered, manual, and hard to control.</h2>
         <p class="cs-body">The client had an existing application for their dealer and distributor network, but it was riddled with loopholes. Operations were fragmented across phone calls, spreadsheets, and informal channels. There was no single source of truth, no real visibility into what partners were doing, and a significant portion of activity falling outside standard business practices.</p>
@@ -314,8 +314,8 @@
           </div>
         </div>
       </div>
-      <div>
-        <div class="ap-wrap" style="margin-top:0;">
+      <div style="display:flex; flex-direction:column;">
+        <div class="ap-wrap" style="margin-top:0; flex:1; display:flex; flex-direction:column;">
           <div class="ap-header">
             <div class="ap-badge"><div class="ap-badge-dot"></div>Self-playing prototype</div>
             <div class="ap-flow" id="apFlow">
