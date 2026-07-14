@@ -291,6 +291,7 @@
     .clients-overflow {
       overflow: hidden;
       padding-left: 48px;
+      padding-right: 48px;
     }
     .hero-explore-wrap {
       padding: 24px 48px;
@@ -827,7 +828,7 @@
     .drawer-link:last-child { border-bottom: none; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .nav-links, .nav-right { display: none; }
       .nav-hamburger { display: flex; }
       .nav-inner { grid-template-columns: 1fr auto; padding: 0 24px; }
@@ -1524,9 +1525,14 @@
       hamburgerBtn.setAttribute('aria-expanded', 'false');
     }
     hamburgerBtn.addEventListener('click', () => {
-      const open = navDrawer.classList.toggle('open');
-      navOverlay.classList.toggle('show', open);
-      hamburgerBtn.setAttribute('aria-expanded', open);
+      const isOpen = navDrawer.classList.contains('open');
+      if (isOpen) {
+        closeDrawer();
+      } else {
+        navDrawer.classList.add('open');
+        navOverlay.classList.add('show');
+        hamburgerBtn.setAttribute('aria-expanded', 'true');
+      }
     });
     navOverlay.addEventListener('click', closeDrawer);
     document.querySelectorAll('.drawer-link').forEach(l => l.addEventListener('click', closeDrawer));
